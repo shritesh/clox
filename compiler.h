@@ -2,8 +2,10 @@
 #define clox_compiler_h
 
 #include "scanner.h"
+#include "vm.h"
 
-void compile(const char *source);
+bool compile(const char *source, Chunk *chunk);
+
 Token scanToken();
 
 #endif
