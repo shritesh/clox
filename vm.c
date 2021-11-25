@@ -235,7 +235,7 @@ static InterpretResult run()
         case OP_PRINT:
             printValue(pop());
             printf("\n");
-            return INTERPRET_OK;
+            break;
         case OP_JUMP:
         {
             uint16_t offset = READ_SHORT();
@@ -247,6 +247,12 @@ static InterpretResult run()
             uint16_t offset = READ_SHORT();
             if (isFalsey(peek(0)))
                 vm.ip += offset;
+            break;
+        }
+        case OP_LOOP:
+        {
+            uint16_t offset = READ_SHORT();
+            vm.ip -= offset;
             break;
         }
         case OP_RETURN:
