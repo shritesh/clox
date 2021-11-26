@@ -135,6 +135,8 @@ int disassembleInstruction(Chunk *chunk, int offset)
 
         return offset;
     }
+    case OP_CLOSE_UPVALUE:
+        return byteInstruction("OP_CLOSE_UPVALUE", chunk, offset);
     case OP_RETURN:
         return simpleInstruction("OP_RETURN", offset);
         break;
